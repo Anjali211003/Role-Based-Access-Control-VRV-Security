@@ -1,0 +1,78 @@
+{
+  "name": "role-based-access-control",
+  "version": "0.1.3",
+  "description": "unopinionated role based access control",
+  "keywords": [
+    "role-based-access-control",
+    "rbac",
+    "role",
+    "based",
+    "access",
+    "control",
+    "access-control"
+  ],
+  "homepage": "https://github.com/codejamninja/role-based-access-control",
+  "bugs": {
+    "url": "https://github.com/codejamninja/role-based-access-control/issues",
+    "email": "jam@codejam.ninja"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Jam Risser",
+    "email": "jam@codejam.ninja",
+    "url": "https://codejam.ninja"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codejamninja/role-based-access-control"
+  },
+  "scripts": {
+    "build": "npm run test && tsc",
+    "clean": "git clean -fXd -e \\!node_modules -e \\!node_modules/**/* && jest --clearCache",
+    "format": "prettier --write ./src/**/*.ts",
+    "lint": "npm run format && tslint --project . --project tests",
+    "lint:fix": "npm run format && tslint --fix --project . --project tests",
+    "prepublish": "npm run clean && npm run build",
+    "start": "ts-node src",
+    "test": "npm run lint && jest"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.118",
+    "@types/node": "^10.12.10",
+    "lodash": "^4.17.11",
+    "role-based-access-control": "^0.1.3"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.9",
+    "jest": "^23.6.0",
+    "prettier": "^1.15.2",
+    "ts-jest": "^23.10.5",
+    "ts-node": "^7.0.1",
+    "tslint": "^5.11.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.16.0",
+    "typescript": "^3.1.6"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "eslintIgnore": [
+    "lib"
+  ],
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "ts",
+      "tsx"
+    ],
+    "transform": {
+      "\\.(tsx?)$": "ts-jest"
+    },
+    "testRegex": "tests(/|/.*/)[^_/]*[jt]sx?$",
+    "verbose": true
+  }
+}
